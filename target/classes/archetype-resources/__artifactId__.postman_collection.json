@@ -1,0 +1,1145 @@
+{
+	"info": {
+		"_postman_id": "bf94346f-2c98-46e7-8f8d-c1e387defeb8",
+		"name": "JSBA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6955431",
+		"_collection_link": "https://cursos-udemy.postman.co/workspace/Projetos~597aa6df-1f08-40da-affe-771891e99590/collection/6955431-bf94346f-2c98-46e7-8f8d-c1e387defeb8?action=share&source=collection_link&creator=6955431"
+	},
+	"item": [
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/jsba/application/info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"jsba",
+								"application",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Módulo de Autenticação Interna (JWT)",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_name\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "refresh_token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzcyMjk4Mjc1LCJleHAiOjE3NzI5MDMwNzV9.E1ckcoTZdFxMSQi-CiLjO-QjtbyuXeRpdCRtsRWO79g; Path=/auth; HttpOnly; Expires=Sat, 07 Mar 2026 17:04:36 GMT;",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/auth/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "refreshToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzcxNDM5MDI2LCJleHAiOjE3NzIwNDM4MjZ9.EqxFQmyUXJlW-gNtblaVCJRZ9_3V9WM_OJZjrFzwMRM; Path=/auth; HttpOnly; Expires=Wed, 25 Feb 2026 18:23:45 GMT;",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/auth/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Me",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6ImQ0ODc5ZTcyLWM0MGUtNGE3YS1iYWQ2LTNjZWMzNDU2OWFjYSIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcxNzE0OTkxLCJleHAiOjE3NzE3MTUyOTF9.-2vBfwgSQ-aNkAw5739mORonYG8GrTpkGbuFc60L98w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/auth/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"auth",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Create User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjM4YTFmMTIwLWFiM2UtNGIzOS05MTE4LTIwNzgwZTRmNTBiNyIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcxNjQzNjI3LCJleHAiOjE3NzE2NDM5Mjd9.xydKUjb88yXrFly9A-wHxKdAJ1dEr4rm9WZ-HRuKuOM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_name\": \"alexandre\",\r\n    \"name\": \"Alexandre Rocha\",\r\n    \"password\": \"12345678\",\r\n    \"acount_non_expired\": true,\r\n    \"account_non_locked\": true,\r\n    \"credentials_non_expired\": true,\r\n    \"enabled\": true,\r\n    \"roles\": [\"ROLE_ADMIN\", \"ROLE_BASIC_USER\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjNkZmExZGJiLThlOTQtNGEwYS1hZDNkLTM3ZWE2NzVkMDAwMyIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9CQVNJQ19VU0VSIl0sImlhdCI6MTc3MTE5OTIxNSwiZXhwIjoxNzcxMjA2NDE1fQ.WQ6RL2-4yFwvtH3yxKy0gv_IPvj20l9MfFQEw5qqyzk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/users/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"users",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Users Pageable",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6ImQ0ODc5ZTcyLWM0MGUtNGE3YS1iYWQ2LTNjZWMzNDU2OWFjYSIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcxNzE0NTk4LCJleHAiOjE3NzE3MTQ4OTh9.5CMATYlvs3vg9GkfhJucn4y9_cDFv1XGFbnQSPfthRI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List User By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjAxOTIzNTc3LTEyYmQtNDM1YS1iYTM1LWJmNWZhYzFiMDJhMyIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9CQVNJQ19VU0VSIl0sImlhdCI6MTc3MDc0ODI3NywiZXhwIjoxNzcwNzU1NDc3fQ.lR1zeJZaf3tz38qgCvg6XsUN8q0HzS6hZ0ZGBznTwgY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/users/50ccaec8-5500-4a06-8baf-31e486f461c0",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"users",
+										"50ccaec8-5500-4a06-8baf-31e486f461c0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List User By User Name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjNkZmExZGJiLThlOTQtNGEwYS1hZDNkLTM3ZWE2NzVkMDAwMyIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9CQVNJQ19VU0VSIl0sImlhdCI6MTc3MTE5OTIxNSwiZXhwIjoxNzcxMjA2NDE1fQ.WQ6RL2-4yFwvtH3yxKy0gv_IPvj20l9MfFQEw5qqyzk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/users/username/admin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"users",
+										"username",
+										"admin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "Create Role",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNpYyIsInVzZXJJZCI6ImRhNDgyZjFiLTgwMDUtNGQ1Mi1iNjc2LWE4ZDk3NjdjM2I5NiIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcwNjc4ODMwLCJleHAiOjE3NzA2ODYwMzB9.LTKv9Xm887WvQAA3MFfx6xwpaap6rpNYrTh3PsZJ7nU\"",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ROLE_GESTOR\",\r\n    \"description\": \"Role para perfil de gestor\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/roles",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Roles",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjAxOTIzNTc3LTEyYmQtNDM1YS1iYTM1LWJmNWZhYzFiMDJhMyIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9CQVNJQ19VU0VSIl0sImlhdCI6MTc3MDc0ODI3NywiZXhwIjoxNzcwNzU1NDc3fQ.lR1zeJZaf3tz38qgCvg6XsUN8q0HzS6hZ0ZGBznTwgY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/roles/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"roles",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List All Roles Pageable",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNpYyIsInVzZXJJZCI6ImUxYzBlMzNjLTZiYWMtNGE4YS1iMTQ4LTZkNTFjNjM0ZWQ1ZiIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcwNjczOTIwLCJleHAiOjE3NzA2ODExMjB9.Czf1ua8XOFBd0lAgak8fsbQb9WawVJQtxAPi9Fc5_kE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/roles?page=0&size=10&sort=name,desc",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"roles"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "name,desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Role By Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNpYyIsInVzZXJJZCI6IjA1Mjk1ZWQxLTViNmEtNDliMy1hNzczLWJmOGJiMmU4ODQ2ZSIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcwNjc0MDgzLCJleHAiOjE3NzA2ODEyODN9.j_1763i1mtuT_c5niAsvrtHEspofGm28OIIlFEUKhcI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/roles/fbff60cf-8e82-4c52-bb20-5cdb10263f7f",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"roles",
+										"fbff60cf-8e82-4c52-bb20-5cdb10263f7f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Role By Name",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiYXNpYyIsInVzZXJJZCI6IjA1Mjk1ZWQxLTViNmEtNDliMy1hNzczLWJmOGJiMmU4ODQ2ZSIsImlzQWNjb3VudE5vbkxvY2tlZCI6dHJ1ZSwiaXNFbmFibGVkIjp0cnVlLCJyb2xlcyI6WyJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcwNjc0MDgzLCJleHAiOjE3NzA2ODEyODN9.j_1763i1mtuT_c5niAsvrtHEspofGm28OIIlFEUKhcI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/roles/name/ROLE_ADMIN",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"roles",
+										"name",
+										"ROLE_ADMIN"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Query",
+					"item": [
+						{
+							"name": "User Roles JPQL Query",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjkzY2YwYWEwLTcxYjUtNGM5Zi1iZWI2LWEzMjNkNjQxNjM5ZiIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcyMzIzMDYyLCJleHAiOjE3NzIzNTMwNjJ9.yrIdq_535AS_Shz2ZTNGlH0v-VEtVxGlgGCCzvFV-M4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/user-roles/query/user-roles-jpql-query?username=admin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"user-roles",
+										"query",
+										"user-roles-jpql-query"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "admin"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Roles Native Query",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjkzY2YwYWEwLTcxYjUtNGM5Zi1iZWI2LWEzMjNkNjQxNjM5ZiIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcyMzIzMDYyLCJleHAiOjE3NzIzNTMwNjJ9.yrIdq_535AS_Shz2ZTNGlH0v-VEtVxGlgGCCzvFV-M4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/jsba/user-roles/query/user-roles-native-query?username=bas&exactly=false",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"jsba",
+										"user-roles",
+										"query",
+										"user-roles-native-query"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "bas"
+										},
+										{
+											"key": "exactly",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Query Spec",
+					"item": [
+						{
+							"name": "Roles",
+							"item": [
+								{
+									"name": "List Roles By Names",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjkzY2YwYWEwLTcxYjUtNGM5Zi1iZWI2LWEzMjNkNjQxNjM5ZiIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcyMzIzMDYyLCJleHAiOjE3NzIzNTMwNjJ9.yrIdq_535AS_Shz2ZTNGlH0v-VEtVxGlgGCCzvFV-M4",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/roles/query/spec/bynames?names=ROLE_ADMIN,ROLE_BASIC_USER&operator=STARTS_WITH&page=0&size=20",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"roles",
+												"query",
+												"spec",
+												"bynames"
+											],
+											"query": [
+												{
+													"key": "names",
+													"value": "ROLE_ADMIN,ROLE_BASIC_USER"
+												},
+												{
+													"key": "operator",
+													"value": "STARTS_WITH"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "20"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Users",
+							"item": [
+								{
+									"name": "List Users By Name",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjkzY2YwYWEwLTcxYjUtNGM5Zi1iZWI2LWEzMjNkNjQxNjM5ZiIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcyMzIzMDYyLCJleHAiOjE3NzIzNTMwNjJ9.yrIdq_535AS_Shz2ZTNGlH0v-VEtVxGlgGCCzvFV-M4",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/users/query/spec/byname?name=ad&operator=STARTS_WITH&page=0&size=20",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"users",
+												"query",
+												"spec",
+												"byname"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "ad"
+												},
+												{
+													"key": "operator",
+													"value": "STARTS_WITH"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "20"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List Users By Usernames",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6IjkzY2YwYWEwLTcxYjUtNGM5Zi1iZWI2LWEzMjNkNjQxNjM5ZiIsImFjY291bnROb25Mb2NrZWQiOnRydWUsImVuYWJsZWQiOnRydWUsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX0JBU0lDX1VTRVIiXSwiaWF0IjoxNzcyMzIzMDYyLCJleHAiOjE3NzIzNTMwNjJ9.yrIdq_535AS_Shz2ZTNGlH0v-VEtVxGlgGCCzvFV-M4",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/users/query/spec/byusernames?usernames=admin,basic&operator=STARTS_WITH&page=0&size=20",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"users",
+												"query",
+												"spec",
+												"byusernames"
+											],
+											"query": [
+												{
+													"key": "usernames",
+													"value": "admin,basic"
+												},
+												{
+													"key": "operator",
+													"value": "STARTS_WITH"
+												},
+												{
+													"key": "page",
+													"value": "0"
+												},
+												{
+													"key": "size",
+													"value": "20"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Módulo de autenticação externa (OAUTH2)",
+			"item": [
+				{
+					"name": "Keycloak",
+					"item": [
+						{
+							"name": "Auth Test",
+							"item": [
+								{
+									"name": "Login",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "useBrowser",
+													"value": false,
+													"type": "boolean"
+												},
+												{
+													"key": "redirect_uri",
+													"value": "http://localhost:8081/*",
+													"type": "string"
+												},
+												{
+													"key": "scope",
+													"value": "openid profile email",
+													"type": "string"
+												},
+												{
+													"key": "clientSecret",
+													"value": "ZuVe4oF1zwp2TGfxOCJbKgfoOaX4McJP",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "jsba",
+													"type": "string"
+												},
+												{
+													"key": "accessTokenUrl",
+													"value": "http://localhost:8080/realms/develop/protocol/openid-connect/token",
+													"type": "string"
+												},
+												{
+													"key": "authUrl",
+													"value": "http://localhost:8080/realms/develop/protocol/openid-connect/auth",
+													"type": "string"
+												},
+												{
+													"key": "grant_type",
+													"value": "authorization_code",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "queryParams",
+													"type": "string"
+												},
+												{
+													"key": "headerPrefix",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "refreshRequestParams",
+													"value": [],
+													"type": "any"
+												},
+												{
+													"key": "tokenRequestParams",
+													"value": [],
+													"type": "any"
+												},
+												{
+													"key": "authRequestParams",
+													"value": [],
+													"type": "any"
+												},
+												{
+													"key": "challengeAlgorithm",
+													"value": "S256",
+													"type": "string"
+												},
+												{
+													"key": "client_authentication",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/keycloak/test/users/admin",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"keycloak",
+												"test",
+												"users",
+												"admin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Me",
+									"request": {
+										"auth": {
+											"type": "oauth2",
+											"oauth2": [
+												{
+													"key": "useBrowser",
+													"value": false,
+													"type": "boolean"
+												},
+												{
+													"key": "redirect_uri",
+													"value": "http://localhost:8081/*",
+													"type": "string"
+												},
+												{
+													"key": "scope",
+													"value": "openid profile email",
+													"type": "string"
+												},
+												{
+													"key": "clientSecret",
+													"value": "ZuVe4oF1zwp2TGfxOCJbKgfoOaX4McJP",
+													"type": "string"
+												},
+												{
+													"key": "clientId",
+													"value": "jsba",
+													"type": "string"
+												},
+												{
+													"key": "accessTokenUrl",
+													"value": "http://localhost:8080/realms/develop/protocol/openid-connect/token",
+													"type": "string"
+												},
+												{
+													"key": "authUrl",
+													"value": "http://localhost:8080/realms/develop/protocol/openid-connect/auth",
+													"type": "string"
+												},
+												{
+													"key": "grant_type",
+													"value": "authorization_code",
+													"type": "string"
+												},
+												{
+													"key": "addTokenTo",
+													"value": "queryParams",
+													"type": "string"
+												},
+												{
+													"key": "headerPrefix",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "tokenName",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "password",
+													"value": "",
+													"type": "string"
+												},
+												{
+													"key": "refreshRequestParams",
+													"value": [],
+													"type": "any"
+												},
+												{
+													"key": "tokenRequestParams",
+													"value": [],
+													"type": "any"
+												},
+												{
+													"key": "authRequestParams",
+													"value": [],
+													"type": "any"
+												},
+												{
+													"key": "challengeAlgorithm",
+													"value": "S256",
+													"type": "string"
+												},
+												{
+													"key": "client_authentication",
+													"value": "header",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ1Z3lPLXhBbVc4b1AzLXR3UTNIV0VjdU1zcEVpZDNHa2xwdGRfNzFzQTc0In0.eyJleHAiOjE3NzE2OTcxNjQsImlhdCI6MTc3MTY5Njg2NCwiYXV0aF90aW1lIjoxNzcxNjk2ODYzLCJqdGkiOiJvbnJ0YWM6NjllZjVhNTYtZWI0Mi0zNThjLWFhYzUtYjc3MGI1ZTZmZGI1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9kZXZlbG9wIiwiYXVkIjpbImpzYmEiLCJBUFBfREVNT19DTElFTlQiLCJhY2NvdW50Il0sInN1YiI6IjBmYWVmOTliLTAzNzktNDI1MC1hMTJjLTJmNWU2MGYzZmI5NCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImpzYmEiLCJzaWQiOiJtODNSbV95SDdkelR3Yy1UcktXZkwtZmEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJST0xFX0FETUlOIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWludGVybmFsIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlVzdcOhcmlvIEFkbWluaXN0cmFkb3IiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJVc3XDoXJpbyIsImZhbWlseV9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImVtYWlsIjoiYWRtaW5AanNiYS5jb20uYnIiLCJhdXRob3JpdGllcyI6WyIvanNiYV9hZG1pbl9ncm91cCIsIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiLCJvZmZsaW5lX2FjY2VzcyIsIlJPTEVfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtaW50ZXJuYWwiXX0.BWafui88iy0GAlKfWqP85tEKT2tXm5YlI3CzALULrcKPLSG1Tdmjyx9skxVz3GNrim_xC3qlSEu3ILLtHMAauD22Iw0obIpT2j2vZnxuUbBxhzRLrdMZ6KohOoIiP_T3igqGqYMsdX4auzH5Pbtb12Gr5GmmaIIR7Muf3NrtXeCUZvyqQHTyZfVLRaXrAt_6coytOG7jzFYDrvlxxB8SypvVKNEhvbv6vIlse5p2xHhYgzCltD49Xp7aCEKn0WEEQjomjQ0DUCe9JlS48LAEqxuVrG4mowpEuXkTft3cnMO2VfVhkI7zezDLCqRF041xJ_kxgfNmDcJ3PuBR6kK4vA",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/auth/me",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"auth",
+												"me"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Access Token",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "client_id",
+													"value": "jsba",
+													"type": "text"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "text"
+												},
+												{
+													"key": "grant_type",
+													"value": "password",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "ZuVe4oF1zwp2TGfxOCJbKgfoOaX4McJP",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/realms/develop/protocol/openid-connect/token",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"realms",
+												"develop",
+												"protocol",
+												"openid-connect",
+												"token"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Refresh Token",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "grant_type",
+													"value": "refresh_token",
+													"type": "text"
+												},
+												{
+													"key": "client_id",
+													"value": "jsba",
+													"type": "text"
+												},
+												{
+													"key": "refresh_token",
+													"value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiODBjODE4ZC1mMDg4LTRjNTEtOWY0MS0xOWMwNjZiMWZmYWMifQ.eyJleHAiOjE3NzE2OTI0OTgsImlhdCI6MTc3MTY5MDY5OCwianRpIjoiOTFlYjc4MWItZjNmZi05OTUwLTQ4YWMtMTllZTE5YTI5NDkxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9kZXZlbG9wIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9kZXZlbG9wIiwic3ViIjoiMGZhZWY5OWItMDM3OS00MjUwLWExMmMtMmY1ZTYwZjNmYjk0IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImpzYmEiLCJzaWQiOiIzTkpWMDdUaHdjM2NaQ25vYkF3X2gwQ1IiLCJzY29wZSI6ImpzYmFfc2NvcGUgYWNyIGJhc2ljIHByb2ZpbGUgREVWRUxPUE1FTlRfU0NPUEUgd2ViLW9yaWdpbnMgZW1haWwgcm9sZXMifQ.FSpm4Qe1ZqBD3-BX-r3j9jtyCG3cknZkesOjpEfsSi-t5GM_eqCBZUOmsWj-pctVXYkoRhVfSoVDq42TYFX3Zg",
+													"type": "text"
+												},
+												{
+													"key": "client_secret",
+													"value": "ZuVe4oF1zwp2TGfxOCJbKgfoOaX4McJP",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/realms/develop/protocol/openid-connect/token",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"realms",
+												"develop",
+												"protocol",
+												"openid-connect",
+												"token"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Endpoints Test",
+							"item": [
+								{
+									"name": "Users",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ1Z3lPLXhBbVc4b1AzLXR3UTNIV0VjdU1zcEVpZDNHa2xwdGRfNzFzQTc0In0.eyJleHAiOjE3NzIxMTQ4NjksImlhdCI6MTc3MjExNDU2OSwiYXV0aF90aW1lIjoxNzcyMTE0MzQyLCJqdGkiOiJvbnJ0YWM6MDMyYmE4OTYtNmNlYS0yZDBkLWM4NDEtZGM4ZWYzZTRjNWFmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9kZXZlbG9wIiwiYXVkIjpbImpzYmEiLCJBUFBfREVNT19DTElFTlQiLCJhY2NvdW50Il0sInN1YiI6IjBmYWVmOTliLTAzNzktNDI1MC1hMTJjLTJmNWU2MGYzZmI5NCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImpzYmEiLCJzaWQiOiJHdzFkZHctWi1SMG5WcWVVdUVFZzFXeGciLCJhY3IiOiIwIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJST0xFX0FETUlOIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWludGVybmFsIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlVzdcOhcmlvIEFkbWluaXN0cmFkb3IiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJVc3XDoXJpbyIsImZhbWlseV9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImVtYWlsIjoiYWRtaW5AanNiYS5jb20uYnIiLCJhdXRob3JpdGllcyI6WyIvanNiYV9hZG1pbl9ncm91cCIsIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiLCJvZmZsaW5lX2FjY2VzcyIsIlJPTEVfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtaW50ZXJuYWwiXX0.LuWBe-kvnvYUReo306mUNT_hn6kElnsK4ypjFj_gAYJPbeh1U0JngXV2thwW3B84EUX2nh6_GM8pSlHo068Wa3UN5EPPOoOpCyIVUTgAb44Gqtq3B5TN8IbFcXSvE5ts0I_uXJrUMwiHxZ6B1ahonFiYfinOUrhOEaTOQZ0dmPRJOwkGw6u0oz28gs7vp3VgxSqFL78bbCB6aDTiU3QZ3pN1eA5v03lXBZ_08lZ8N6K6L5BEROkGvkCLzxUy4TjB_gIBzSrVsIFqucskQT4VpjH9ilKRr95qbi-gx-fUWW5KdNi9NJbKR_5DiDWE-Wh8sx39_BgPjyQyXFTOOLB8Gg",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/keycloak/test/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"keycloak",
+												"test",
+												"users"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Admin",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ1Z3lPLXhBbVc4b1AzLXR3UTNIV0VjdU1zcEVpZDNHa2xwdGRfNzFzQTc0In0.eyJleHAiOjE3NzE2OTcxNjQsImlhdCI6MTc3MTY5Njg2NCwiYXV0aF90aW1lIjoxNzcxNjk2ODYzLCJqdGkiOiJvbnJ0YWM6NjllZjVhNTYtZWI0Mi0zNThjLWFhYzUtYjc3MGI1ZTZmZGI1IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9kZXZlbG9wIiwiYXVkIjpbImpzYmEiLCJBUFBfREVNT19DTElFTlQiLCJhY2NvdW50Il0sInN1YiI6IjBmYWVmOTliLTAzNzktNDI1MC1hMTJjLTJmNWU2MGYzZmI5NCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImpzYmEiLCJzaWQiOiJtODNSbV95SDdkelR3Yy1UcktXZkwtZmEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6ODA4MSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJST0xFX0FETUlOIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWludGVybmFsIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlVzdcOhcmlvIEFkbWluaXN0cmFkb3IiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJVc3XDoXJpbyIsImZhbWlseV9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImVtYWlsIjoiYWRtaW5AanNiYS5jb20uYnIiLCJhdXRob3JpdGllcyI6WyIvanNiYV9hZG1pbl9ncm91cCIsIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiLCJvZmZsaW5lX2FjY2VzcyIsIlJPTEVfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtaW50ZXJuYWwiXX0.BWafui88iy0GAlKfWqP85tEKT2tXm5YlI3CzALULrcKPLSG1Tdmjyx9skxVz3GNrim_xC3qlSEu3ILLtHMAauD22Iw0obIpT2j2vZnxuUbBxhzRLrdMZ6KohOoIiP_T3igqGqYMsdX4auzH5Pbtb12Gr5GmmaIIR7Muf3NrtXeCUZvyqQHTyZfVLRaXrAt_6coytOG7jzFYDrvlxxB8SypvVKNEhvbv6vIlse5p2xHhYgzCltD49Xp7aCEKn0WEEQjomjQ0DUCe9JlS48LAEqxuVrG4mowpEuXkTft3cnMO2VfVhkI7zezDLCqRF041xJ_kxgfNmDcJ3PuBR6kK4vA",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/keycloak/test/users/admin",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"keycloak",
+												"test",
+												"users",
+												"admin"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Basic",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ1Z3lPLXhBbVc4b1AzLXR3UTNIV0VjdU1zcEVpZDNHa2xwdGRfNzFzQTc0In0.eyJleHAiOjE3NzE2OTA5OTgsImlhdCI6MTc3MTY5MDY5OCwianRpIjoib25ydHJvOmNiNzg1YTFjLWMwOTAtZGUyYS0xMzg4LTc3NTNkNWNlYWJkOSIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWFsbXMvZGV2ZWxvcCIsImF1ZCI6WyJqc2JhIiwiQVBQX0RFTU9fQ0xJRU5UIiwiYWNjb3VudCJdLCJzdWIiOiIwZmFlZjk5Yi0wMzc5LTQyNTAtYTEyYy0yZjVlNjBmM2ZiOTQiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJqc2JhIiwic2lkIjoiM05KVjA3VGh3YzNjWkNub2JBd19oMENSIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODEiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiUk9MRV9BRE1JTiIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1pbnRlcm5hbCJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IlVzdcOhcmlvIEFkbWluaXN0cmFkb3IiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImdpdmVuX25hbWUiOiJVc3XDoXJpbyIsImZhbWlseV9uYW1lIjoiQWRtaW5pc3RyYWRvciIsImVtYWlsIjoiYWRtaW5AanNiYS5jb20uYnIiLCJhdXRob3JpdGllcyI6WyIvanNiYV9hZG1pbl9ncm91cCIsIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiLCJvZmZsaW5lX2FjY2VzcyIsIlJPTEVfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsImRlZmF1bHQtcm9sZXMtaW50ZXJuYWwiXX0.USuUdSQnOeoRDtvdkQfdLAzj500ZYwjGZTxuNruqrFrzqQhsExeCUuv7gWliWV1S729yD8GbGX-ub9ccL6fB1MFFk-HpqOD_kabXyV-9VJ7RhjUzhU3K6iaJyntztriRT4FdmJMlfrS0UnwR5lpxRdj9AdMf0fKU-ZI1vfuXfWg919D2kcYS7P01E_ZijbM0ioBAW1PS96TxualkCCaZ4sjZFu-ctHxzYHZ5cuONJWYQJDTsm_xfjILFLvR3AMJ25vbDtEKAIaADeXVSaypPG89LRts8PT0Tfkq8IiulX20oFGiI0peMeFlv0PNOG68nXI_uQtNPRu1jE2hJ_q34-g",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/keycloak/test/users/basic",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"keycloak",
+												"test",
+												"users",
+												"basic"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "User Anonymous",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/jsba/keycloak/test/users/anonymous",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"jsba",
+												"keycloak",
+												"test",
+												"users",
+												"anonymous"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

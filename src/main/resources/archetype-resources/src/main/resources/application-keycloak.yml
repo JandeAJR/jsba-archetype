@@ -1,0 +1,26 @@
+# ========================================================================================
+# Spring Boot Convention: application-{profile}.yml
+#
+# Profile: keycloak
+# File name: application-keycloak.yml
+# Descrição: Configurações de Segurança para Autenticação Externa OAuth2 para Keycloak.
+# ========================================================================================
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer: ${APP_OAUTH2_ISSUER:http://localhost:8080/realms/develop}
+
+security:
+  strategy: KEYCLOAK
+  oauth2:
+    expiration: 5              # Tempo de expiração do access token em minutos
+    refresh-expiration: 10080  # Tempo de expiração do refresh token em minutos (7 dias) 
+    keycloak:
+      issuer: ${APP_OAUTH2_KEYCLOAK_ISSUER:http://localhost:8080/realms/develop}
+      redirect_uri: ${APP_OAUTH2_KEYCLOAK_REDIRECT_URI:http://localhost:8081/*}
+      client_id: ${APP_OAUTH2_KEYCLOAK_CLIENT_ID:jsba}  # client_id == audience
+      client-secret: ${APP_OAUTH2_KEYCLOAK_CLIENT_SECRET:ZuVe4oF1zwp2TGfxOCJbKgfoOaX4McJP}
+      claim: authorities

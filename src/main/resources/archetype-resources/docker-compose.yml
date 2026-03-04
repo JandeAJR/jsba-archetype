@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+
+  # Ambiente de Deploy (CI/CD / PROD / HML / DSV)
+  jsba-deploy:
+    container_name: jsba-backend
+    restart: always
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    network_mode: bridge
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      JAVA_OPTS: "-Xms512m -Xmx1024m"
+    profiles:
+      - deploy
+
+  # Ambiente Local (DEV)
+  jsba-local:
+    container_name: jsba-backend-local
+    build:
+      context: ./
+      dockerfile: Dockerfile.local
+    ports:
+      - "8081:8081"
+    network_mode: bridge
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+      JAVA_OPTS: "-Xms256m -Xmx512m"
+    profiles:
+      - local
+
+#
+## 
+### Deploy
+# docker compose --profile deploy up --build
+# docker compose --profile deploy up -d --build
+
+#
+## 
+### Local
+# docker compose --profile local up --build
+# docker compose --profile local up -d --build

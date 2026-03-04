@@ -1,0 +1,28 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+${symbol_dollar}{AnsiStyle.BOLD}${symbol_dollar}{AnsiColor.BRIGHT_GREEN}
+=======================================================================================                                                                             
+${symbol_dollar}{AnsiColor.BRIGHT_BLUE}
+/**
+ *      888888  .d8888b.  888888b.         d8888 
+ *        "88b d88P  Y88b 888  "88b       d88888 
+ *         888 Y88b.      888  .88P      d88P888 
+ *         888  "Y888b.   8888888K.     d88P 888 
+ *         888     "Y88b. 888  "Y88b   d88P  888 
+ *         888       "888 888    888  d88P   888 
+ *         88P Y88b  d88P 888   d88P d8888888888 
+ *         888  "Y8888P"  8888888P" d88P     888 
+ *       .d88P                                   
+ *     .d88P"                                    
+ *    888P"                                      
+ */                                                                                                           
+${symbol_dollar}{AnsiColor.BRIGHT_GREEN}
+=======================================================================================   
+                Bem-vindo a aplicacao ${symbol_dollar}{spring.application.name}
+                Versao: ${symbol_dollar}{project.version}
+                Profile: ${symbol_dollar}{spring.profiles.active}
+                Spring Boot: ${symbol_dollar}{spring-boot.version}
+                Java: ${symbol_dollar}{java.version}                
+=======================================================================================
+${symbol_dollar}{AnsiStyle.NORMAL}${symbol_dollar}{AnsiColor.DEFAULT}

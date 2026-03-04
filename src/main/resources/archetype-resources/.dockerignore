@@ -1,0 +1,11 @@
+target/
+.git/
+node_modules/
+scripts/
+*.log
+.env
+jsba.postman_collection.json
+jsba-eclipse-sts-preferences.json
+keycloak-realm-localhost.json
+HELP.md
+README.md

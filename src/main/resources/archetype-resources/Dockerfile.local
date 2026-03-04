@@ -1,0 +1,33 @@
+# -------------------------
+# STAGE 1 - BUILD
+# -------------------------
+FROM maven:3.9.9-eclipse-temurin-21 AS builder
+
+WORKDIR /app
+
+COPY . .
+
+ENV HTTP_PROXY http://proxy-sede.infranet.gov.br:8080
+ENV HTTPS_PROXY http://proxy-sede.infranet.gov.br:8080
+
+RUN mvn clean package -DskipTests
+
+# -------------------------
+# STAGE 2 - RUNTIME
+# -------------------------
+FROM eclipse-temurin:21-jre-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/target/*.jar app.jar
+
+# Variáveis de ambiente (exemplo)
+ENV SPRING_PROFILES_ACTIVE=local
+ENV DB_HOST=localhost
+ENV DB_NAME=jsba
+ENV DB_USER=postgres
+ENV DB_PASSWORD=postgres
+
+EXPOSE 8081
+
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

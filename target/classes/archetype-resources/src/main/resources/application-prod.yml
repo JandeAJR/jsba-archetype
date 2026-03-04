@@ -1,0 +1,59 @@
+# ======================================================================================================
+# Spring Boot Convention: application-{profile}.yml
+#      
+# Profiles da aplicação:      prod, develop, homolog, test
+# Profiles para autenticação: valores definidos em authentication.oauth2.strategies (application.yml)
+#
+# Profile: prod
+# Profile para ser utilizado no ambiente de produção
+# ======================================================================================================
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: ${APP_DATABASE_URL:""}
+    username: ${APP_DATABASE_USERNAME:""}
+    password: ${APP_DATABASE_PASSWORD:""}
+    driver-class-name: ${APP_DATABASE_DRIVER:oracle.jdbc.OracleDriver}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 20
+      connection-timeout: 30000  # 30 segundos
+      idle-timeout: 600000       # 10 minutos
+      max-lifetime: 1800000      # 30 minutos
+
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: ${APP_JPA_DATABASE_PLATFORM:org.hibernate.dialect.OracleDialect}
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false    
+        jdbc.batch_size: 30  # Melhora performance em inserts/updates em lote
+        order_inserts: true
+        order_updates: true        
+        boot.allow_jdbc_metadata_access: false  # Garante que o Hibernate não tente criar tabelas desnecessárias
+
+  flyway:
+    enabled: false
+
+cors:
+  allowed-origins: 
+    - https://application-frontend.com.br
+    - https://application-admin.com.br
+
+frontend-home-page: ${APP_FRONTEND_HOME_PAGE:https://application-frontend.com.br/home}
+frontend-login-page: ${APP_FRONTEND_LOGIN_PAGE:https://application-frontend.com.br/login}
+
+logging:
+  level:
+    com.zaxxer.hikari: info
+
+project:
+  database: "Oracle Produção"
+  profile: "Produção"

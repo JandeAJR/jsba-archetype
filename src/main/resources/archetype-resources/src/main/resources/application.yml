@@ -1,0 +1,70 @@
+# ============================================================================================================
+# Descrição: Configurações principais da aplicação. Carrega os profiles da aplicação e para o
+#            modelo de autenticação que a aplicação irá usar: internal (JWT) ou external (OAUTH2).
+#            Se for autenticação OAuth2, deverá ser criado um arquivo de propriedades .yml específico
+#            para o IDM utilizado pela aplicação. Exemplo: Keycloak, Microsoft Entre Id e AWS Cognito.
+#  
+# Spring Boot Convention: application-{profile}.yml
+#      
+# Profiles da aplicação:      prod, develop, homolog, test
+# Profiles para autenticação: valores definidos nos arquivos application-jwt.yml e application-keycloak.yml
+#                             propriedade: security.strategy (JWT ou KEYCLOAK, dependendo do arquivo)
+# =============================================================================================================
+
+spring:
+  application:
+    name: "@project.name@"
+    
+  profiles:
+    active: ${APP_PROFILE:test} # Define o profile ativo da aplicação (prod, develop, homolog, test)
+    include: 
+      - ${APP_PROFILE_INCLUDE:jwt} # Profile para autenticação (autenticações disponíveis: jwt e keycloak)
+
+  config:
+    validate-on-boot: true
+
+  # Configurações para o Objeto Spring Pageable (paginação de dados)
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 100
+
+  # Configurações para o flyway (se estiver sendo utilizado)
+  flyway:
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  # Configurações para o Spring MVC:
+  # Desabilita o mapeamento automático de recursos estáticos (como CSS, JS, etc.)
+  # para evitar conflitos com o Spring Security.
+  web:
+    resources:
+      add-mappings: false
+
+  # Opções de naming strategy para o Jackson:
+  # SNAKE_CASE, KEBAB_CASE, LOWER_CAMEL_CASE, UPPER_CAMEL_CASE, LOWER_CASE, LOWER_DOT_CASE
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  port: ${APP_SERVER_PORT:8081} # Define a porta do servidor (padrão: 8081)
+  servlet:
+    context-path: ${APP_CONTEXT_PATH:/api/jsba} # Define o contexto da aplicação (ex: /api/jsba)
+
+springdoc:
+  swagger-ui:
+    path: ${APP_SWAGGER_UI_PATH:/swagger} # Define o caminho para acessar a interface do Swagger UI (padrão: /swagger)
+    enabled: true
+  api-docs:
+    path: ${APP_SWAGGER_API_DOCS:/v3/api-docs} # Define o caminho para acessar os endpoints de documentação da API (padrão: /v3/api-docs)
+    enabled: true
+
+authentication:
+  strategies:
+    - JWT
+    - KEYCLOAK
+
+project:
+  name: "@project.name@"
+  version: "@project.version@"

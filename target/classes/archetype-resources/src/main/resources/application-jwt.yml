@@ -1,0 +1,18 @@
+# =========================================================================
+# Spring Boot Convention: application-{profile}.yml
+#
+# Profile: jwt
+# File name: application-jwt.yml
+# Descrição: Configurações de Segurança para Autenticação Interna (JWT).
+# =========================================================================
+
+security:
+  strategy: JWT
+  jwt:
+    key: ${APP_JWT_SECRET:lDqUlCXMJyrfsWetmyRUBuxoWebgn339nJDiDy+T8CE=}
+    expiration: 5              # Tempo de expiração do access token em minutos
+    refresh-expiration: 10080  # Tempo de expiração do refresh token em minutos (7 dias) 
+  auth:
+    login-path: /auth/login
+  bcrypt:
+    strength: 12  # Rounds para o BCrypt (Força da criptografia de senha)

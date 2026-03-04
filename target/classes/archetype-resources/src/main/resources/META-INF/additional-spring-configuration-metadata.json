@@ -1,0 +1,144 @@
+{
+	"properties": [
+		{
+			"name": "spring.flyway.enabled",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.flyway.enabled'"
+		},
+		{
+			"name": "spring.flyway.locations",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.flyway.locations'"
+		},
+		{
+			"name": "spring.flyway.baseline-on-migrate",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.flyway.baseline-on-migrate'"
+		},
+		{
+			"name": "cors.allowed-origins",
+			"type": "java.util.List<java.lang.String>",
+			"description": "A description for 'cors.allowed-origins'"
+		},
+		{
+			"name": "frontend-home-page",
+			"type": "java.lang.String",
+			"description": "A description for 'frontend-home-page'"
+		},
+		{
+			"name": "frontend-login-page",
+			"type": "java.lang.String",
+			"description": "A description for 'frontend-login-page'"
+		},
+		{
+			"name": "project.name",
+			"type": "java.lang.String",
+			"description": "A description for 'project.name'"
+		},
+		{
+			"name": "project.version",
+			"type": "java.lang.String",
+			"description": "A description for 'project.version'"
+		},
+		{
+			"name": "project.database",
+			"type": "java.lang.String",
+			"description": "A description for 'project.database'"
+		},
+		{
+			"name": "project.profile",
+			"type": "java.lang.String",
+			"description": "A description for 'project.profile'"
+		},
+		{
+			"name": "spring.config.validate-on-boot",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.config.validate-on-boot'"
+		},
+		{
+			"name": "security.strategy",
+			"type": "java.lang.String",
+			"description": "A description for 'security.strategy'"
+		},
+		{
+			"name": "security.jwt.key",
+			"type": "java.lang.String",
+			"description": "A description for 'security.jwt.key'"
+		},
+		{
+			"name": "security.jwt.expiration",
+			"type": "java.lang.String",
+			"description": "A description for 'security.jwt.expiration'"
+		},
+		{
+			"name": "security.jwt.refresh-expiration",
+			"type": "java.lang.String",
+			"description": "A description for 'security.jwt.refresh-expiration'"
+		},
+		{
+			"name": "security.jwt.header",
+			"type": "java.lang.String",
+			"description": "A description for 'security.jwt.header'"
+		},
+		{
+			"name": "security.jwt.prefix",
+			"type": "java.lang.String",
+			"description": "A description for 'security.jwt.prefix'"
+		},
+		{
+			"name": "security.auth.login-path",
+			"type": "java.lang.String",
+			"description": "A description for 'security.auth.login-path'"
+		},
+		{
+			"name": "security.bcrypt.strength",
+			"type": "java.lang.String",
+			"description": "A description for 'security.bcrypt.strength'"
+		},
+		{
+			"name": "spring.security.oauth2.resourceserver.jwt.issuer",
+			"type": "java.lang.String",
+			"description": "A description for 'spring.security.oauth2.resourceserver.jwt.issuer'"
+		},
+		{
+			"name": "security.oauth2.keycloak.claim",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.keycloak.claim'"
+		},
+		{
+			"name": "security.oauth2.keycloak.issuer",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.keycloak.issuer'"
+		},
+		{
+			"name": "security.oauth2.keycloak.redirect_uri",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.keycloak.redirect_uri'"
+		},
+		{
+			"name": "security.oauth2.keycloak.client_id",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.keycloak.client_id'"
+		},
+		{
+			"name": "security.oauth2.keycloak.client-secret",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.keycloak.client-secret'"
+		},
+		{
+			"name": "authentication.strategies",
+			"type": "java.util.List<java.lang.String>",
+			"description": "A description for 'authentication.strategies'"
+		},
+		{
+			"name": "security.oauth2.expiration",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.expiration'"
+		},
+		{
+			"name": "security.oauth2.refresh-expiration",
+			"type": "java.lang.String",
+			"description": "A description for 'security.oauth2.refresh-expiration'"
+		}
+	]
+}

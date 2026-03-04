@@ -1,0 +1,57 @@
+# ======================================================================================================
+# Spring Boot Convention: application-{profile}.yml
+#      
+# Profiles da aplicação:      prod, develop, homolog, test
+# Profiles para autenticação: valores definidos em authentication.oauth2.strategies (application.yml)
+#
+# Profile: homolog
+# Profile para ser utilizado no ambiente de homologação
+# ======================================================================================================
+
+spring:
+  config:
+    activate:
+      on-profile: homolog
+
+  datasource:
+    url: ${APP_DATABASE_URL:jdbc:oracle:thin:@localhost:1521/XEPDB1}
+    username: ${APP_DATABASE_USERNAME:HOMOLOG}
+    password: ${APP_DATABASE_PASSWORD:root}
+    driver-class-name: ${APP_DATABASE_DRIVER:oracle.jdbc.OracleDriver}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 20
+      connection-timeout: 30000  # 30 segundos
+      idle-timeout: 600000       # 10 minutos
+      max-lifetime: 1800000      # 30 minutos
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    database-platform: ${APP_JPA_DATABASE_PLATFORM:org.hibernate.dialect.OracleDialect}
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true     
+        jdbc.batch_size: 30  # Melhora performance em inserts/updates em lote
+        order_inserts: true
+        order_updates: true        
+        boot.allow_jdbc_metadata_access: false  # Garante que o Hibernate não tente criar tabelas desnecessárias
+
+  flyway:
+    enabled: false
+
+cors:
+  allowed-origins: "*"
+
+frontend-home-page: ${APP_FRONTEND_HOME_PAGE:http://localhost:3000/home}
+frontend-login-page: ${APP_FRONTEND_LOGIN_PAGE:http://localhost:3000/login}
+
+logging:
+  level:
+    com.zaxxer.hikari: info
+
+project:
+  database: "Oracle Homologação"
+  profile: "Homologação"
