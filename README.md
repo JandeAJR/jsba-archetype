@@ -1,4 +1,4 @@
-# JSBA - Java Spring Boot Application Project
+# JSBA - Java Spring Boot Application Archetype Project
 
 ### Versão 1.0.2-SNAPSHOT
 
